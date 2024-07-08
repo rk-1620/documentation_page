@@ -1,0 +1,21 @@
+<!-- blog/templates/blogs/logout.html -->
+
+{% comment %} the template is option because django has its 
+own default logout page. But if you want to create your own logout page,
+ you can create a template named logout.html in the blogs directory
+ of the templates directory. The template should contain the following code: {% endcomment %}
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logged Out</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>You have been logged out</h1>
+        <p><a href="{% url 'Blogsite:landing_page' %}">Return to the homepage</a></p>
+    </div>
+</body>
+</html>

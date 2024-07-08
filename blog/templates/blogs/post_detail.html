@@ -1,0 +1,55 @@
+<!-- blog/templates/blogs/post_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'Blogsite:landing_page' %}" class="navbar-brand">My Blog</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="{% url 'Blogsite:post_list' %}" class="nav-link">Blog Posts</a></li>
+                <li class="nav-item"><a href="{% url 'Blogsite:category_list' %}" class="nav-link">Categories</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'Blogsite:profile' %}" class="nav-link">Profile</a></li>
+                    <li class="nav-item"><a href="{% url 'Blogsite:logout' %}" class="nav-link">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{% url 'Blogsite:login' %}" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="{% url 'Blogsite:signup' %}" class="nav-link">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.created_at }}</p>
+        <p>{{ post.content }}</p>
+        {% if user == post.author %}
+            <a href="{% url 'Blogsite:post_update' post.slug %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'Blogsite:post_delete' post.slug %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+        <h2>Comments</h2>
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.content }}</p> <!-- Changed from comment.text to comment.content -->
+                    <p>{{ comment.created_at }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'Blogsite:add_comment_to_post' post.slug %}">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit">Add Comment</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'Blogsite:login' %}">Log in</a> to add a comment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

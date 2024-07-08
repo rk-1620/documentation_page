@@ -1,0 +1,15 @@
+<!-- blog/templates/blogs/post_confirm_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Post</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete this post?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'Blogsite:post_detail' object.slug %}">Cancel</a>
+</body>
+</html>

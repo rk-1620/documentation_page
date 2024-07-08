@@ -1,0 +1,185 @@
+/* blog/static/blog/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #343a40;
+    margin-top: 50px;
+}
+
+p {
+    color: #6c757d;
+}
+
+nav {
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left; /* Changed to left-align container content */
+}
+
+.navbar {
+    background-color: #007bff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* Space between brand and nav items */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons .btn {
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.auth-buttons .btn-primary {
+    background-color: #007bff;
+}
+
+.auth-buttons .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.auth-buttons .btn-secondary {
+    background-color: #6c757d;
+}
+
+.auth-buttons .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-item {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.post-item a {
+    font-size: 24px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.post-item p {
+    margin: 5px 0;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .step-links {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .step-links a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.pagination .step-links .current {
+    margin: 0 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Full width for better form layout */
+    margin-bottom: 10px; /* Margin between form fields */
+}
+
+form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for the landing page */
+.landing-content {
+    padding: 50px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
